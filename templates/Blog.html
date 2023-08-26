@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="with=device-width, initial-scale=1.0">
+<title> An interactive Webapp for Sentiment analysis </title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,600;0,800;1,300;1,500;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <section class="sub-header">    
+      <nav>
+          
+          <div class= "nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+              <ul>
+                <li><a href="index.html" > HOME</a></li>
+                <!--<li><a href="Blog.html"> BLOG</a></li>-->
+                <li><a href="Services.html">SERVICES</a></li>
+                <li><a href="about.html"> ABOUT</a></li>
+                <li><a href="contact.html"> CONTACT</a></li>
+              </ul>
+          </div>
+          <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+      <h1>OUR BLOG</h1>
+</section>
+<!-----------Blog page content-------------------------->
+<section class="blog-content">
+    
+            
+            <h2> Our plans</h2>
+            <p>A paragraph is a series of related sentences developing
+                a central idea, called the topic.</p>
+
+            <!--<div class="comment-box">
+                <h3>Leave a comment</h3>
+                <form class="comment-form">
+                    <input type="text" placeholder="Enter name">
+                    <input type="email" placeholder="Enter email">
+                    <textarea type="text" rows="10" placeholder="Your Comment"></textarea>
+                    <button type="submit" class="hero-btn red-btn">POST COMMENT</button>
+                   
+                </form>
+            </div>---> 
+        
+        
+        
+    </div>
+</section>
+
+
+
+<!-------------footer------------------------
+ <section class="footer">
+    <h4>About Us</h4>
+    <p>A paragraph is a series of related sentences developing<br>
+        a central idea, called the topic.
+    </p>
+    <div class="icons">
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-linkedin"></i>
+    </div>
+ </section>------->
+
+
+
+
+
+
+
+
+
+
+<!--------JAVASCRIPT for toggle Menu--------------->
+
+<script>
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right ="0";
+    }
+    function hideMenu(){
+        navLinks.style.right ="-200px";
+    }
+</script>
+
+</body>
+</html>
+

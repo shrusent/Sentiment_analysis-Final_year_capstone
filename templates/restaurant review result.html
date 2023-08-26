@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+<style>
+#main{
+    padding: 2em;
+    background-color: #e2a29d;
+    width: auto;
+    height: auto;
+}
+</style>
+<body>
+<div id="main">
+RESULT:
+    <div>
+
+    {% for k,v in r.items %}
+
+          <h3>{{ k }} : {{ v}}</h3>
+
+
+
+    {% endfor %}
+
+
+    </div>
+</div>
+
+
+</body>
+</html>

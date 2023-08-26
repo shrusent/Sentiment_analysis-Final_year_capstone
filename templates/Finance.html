@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title> An interactive Webapp for Sentiment analysis </title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,600;0,800;1,300;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+<script>
+    const userAction = async () => {
+        const response = await fetch('http://127.0.0.1:8000/api-search-finace', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ "q": "q" })
+        });
+        const myJson = await response.json(); //extract JSON from the http response
+        document.getElementById("result").textContent = myJson["image"];
+    }
+</script>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        align-items: center;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <section class="sub-header">
+        <nav>
+
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html"> HOME</a></li>
+                    <!--<li><a href="Blog.html"> BLOG</a></li>-->
+                    <li><a href="Services.html">SERVICES</a></li>
+                    <li><a href="about.html"> ABOUT</a></li>
+                    <li><a href="contact.html"> CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>AI for Finance</h1>
+    </section>
+    <!-----------Finance content-------------------------->
+    <section class="finance-content">
+        <br>
+
+        <h1>Stock Market Prediction</h1>
+        <p>The stock market is known for being volatile, dynamic, and nonlinear. Accurate stock price prediction is
+            extremely challenging because of
+            multiple factors, such as politics, global economic conditions, unexpected events, a company’s financial
+            performance,
+            and so on.Sentiment of the news of any companies plays a vital role in deciding the performance in the
+            stock market. <br>
+            <br>
+            Therefore, it is very important to analyze the polarity of the news about
+            companies before making a investment in the stock market.
+            The revolution in artificial intelligence and the availability of large data sets is setting up the ground
+            for the end of the equity
+            analyst position.Artificial intelligence came now to an efficiency point where it is capable to consistently
+            outperform analysts.
+            Our mission is to provide our clients with high quality trading signals. We provide both long and short
+            signals, in the equity market.
+        </p>
+        <section class="services">
+
+            <div id="myBtn1" class="course-col">
+                <img src="{% static 'images/img1.jpeg' %}" height="300px" width="auto">
+
+
+            </div>
+            <div id="myBtn2" class="course-col">
+                <img src="{% static 'images/img2.jpeg' %}" height="300px" width="auto">
+
+            </div>
+            <div id="myBtn3" class="course-col">
+                <img src="{% static 'images/img3.jpeg' %}" height="300px" width="auto">
+
+            </div>
+
+
+        </section>
+        <button onclick="userAction()">click here</button>
+        <img id="myImage">
+        <!--<div class="fin-comment-box">
+                <h3>Enter the review</h3>
+                <form class="fin-comment-form">
+                    <input type="text" placeholder="Enter your name">
+                    <input type="email" placeholder="Enter your email">
+                    <input type="text"  placeholder="Enter the review">
+                    <button type="submit" class="hero-btn red-btn">SUBMIT</button>
+                   
+                </form>
+            </div>    
+        </div>
+        <div class="fin-blog-right">
+            <h3> Categories</h3>
+            <div>
+                <span> Postive</span>
+                
+            </div>
+            <div>
+                <span> Negative</span>
+                
+            </div>
+            <div>
+                <span>Neutral</span>
+                
+            </div>
+
+        </div>
+        
+    </div>
+</section>
+
+
+
+-----------footer------------------------
+ <section class="footer">
+    <h4>About Us</h4>
+    <p>A paragraph is a series of related sentences developing<br>
+        a central idea, called the topic.
+    </p>
+    <div class="icons">
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-linkedin"></i>
+    </div>
+ </section>---------->
+
+
+
+
+
+
+
+
+
+
+        <!--------JAVASCRIPT for toggle Menu--------------->
+
+        <script>
+            var navLinks = document.getElementById("navLinks");
+            function showMenu() {
+                navLinks.style.right = "0";
+            }
+            function hideMenu() {
+                navLinks.style.right = "-200px";
+            }
+        </script>
+
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content" style="align-content: center;">
+                <span class="close">&times;</span>
+                <ol>
+                    <li>
+                        <p id="desc1"></p>
+                    </li>
+                    <li>
+                        <p id="desc2"></p>
+                    </li>
+                    <li>
+                        <p id="desc3"></p>
+                    </li>
+                    <li>
+                        <p id="desc4"></p>
+                    </li>
+                    <li>
+                        <p id="desc5"></p>
+                    </li>
+                </ol>
+                <img id="image">
+            </div>
+
+        </div>
+
+        <script>
+
+            var tweets = [
+                "Tchinical Analisys Update #07Jun2022 13:23\nStock : #TATAMOTORS\n30 Min RSI :55.82\n30 Min RSI Comment :Strong with Positive Bais\n30 Min Histogram :0.58 Bullish\n#investing #nifty #nifty50 #StockMarcket #business #finance #Financial #invest #stocks #technical #analisys",
+                "Market share of Commercial Vehicles🚐\n                               \n• #Tata  Motors       41.35%\n• M&amp;M                     22.12%\n• #ashokleyland     15.59%\n• VE                            6.80%\n• Maruti Suzuki         4.54%\n\n(May'22)\n\n#tatamotors #StockMarket",
+                "Tata Motors Bags An Order For 10,000 Units Of The XPRES-T EV From BluSmart\n\n#Tatamotors #blusmart #ev #autoindustry #India #readselective\n\nhttps://t.co/IKnTF9BnHW",
+                "Tatamotors Further to my Complaint# 5-155526579871, and telephonic conversations, I would like to bring to your notice that this is fifth time in last six-seven months, I have to visit TATA Motors Service centre for one or the other problems, Hence, reliability looks poor to me",
+                "#TataMotors is gearing up. It is likely to accelerate as soon as the market comes in bullish mode. Keep a tab there",
+                "Waiting period for cars have further increased: know the reason why? #MahindraXUV700 #Semi-conductors #TataMotors https://t.co/a0HgB5ozI9",
+                "@TataMotors announced the deliveries of 51 #electricvehicles including 9 Tigor EVs, 39 Nexon EVs, and 3 Nexon EV MAX in #Nagpur\n\n#EV #TataMotors\nhttps://t.co/v2SaitqMBq",
+                "Tata Motors bags order for delivering the biggest EV fleet in India https://t.co/dRUh2Gs8cu #TataMotors #BluSmartElectricMobility #XpresT #ElectricVehicles @netindian",
+                "Pre Market Report\nTata Motors bags India’s biggest EV fleet order from cab company BluSmart\nTata Motors will deliver 10,000 XPRES T EVs to BluSmart Electric Mobility.\n#TataMotors\n#ForeverEquity\n#StockMarketindia",
+                "With the call for going green and the ever-rising #FuelPrices, the time is ripe for you to go for #ElectricCars. #HyundaiKona #Hyundai #SUV #NexonEV #Nexon #MGMotor #TigorEV #NexonEVMAX #TataMotors\nhttps://t.co/a0ynAy4tLc",
+                "#KolkataPolice held an event to formally draft 17 #TataMotors #NexonEV as it pledged to contribute to a cleaner climate. Also announced exemption of registration and other taxes on #ElectricVehicles.\n\nhttps://t.co/guxhEBCO8y",
+                "Good going by @TataMotors with #EV \n\n#TataMotors 👌 https://t.co/nnBQqqmkpf",
+                "Tata Motors will deliver 10,000 XPRES-T EVs To BluSmart Electric Mobility. Biggest ever fleet order in India! Details inside.\n\nDetails - https://t.co/aw6WrINba6\n\n@TataMotors_Cars #TataMotors #TataEVs #ElectricCars #tatamotorscars",
+                "A huge positive for the #environment and the #electricvehicle ecosystem as more cars are set to ply the Indian roads soon....\n\n#TataMotors @BluSmartIndia\n\nhttps://t.co/jBSebzrLPs",
+                "@TataMotors_Cars It's been 2 days and I haven't heard anything from Tata Motors. I'm going to raise a complaint in Consumer Forum. I know Tata Motors don't care for their customers and let them suffer like me. @TataMotors @TataMotors_Cars @TataCompanies @tata\n#Shameless #TataMotors",
+                "#TataMotors has signed an agreement with #BluSmart #Electric Mobility for delivering 10,000 XPRES-T #EVs to the company. The carmaker claims that this is the biggest ever #EV fleet order in #India.\n\n@Tatamotorsev #Tata #ElectricVehicles @ShaktiNathJha22 \nhttps://t.co/4CiO9IzRTZ",
+                "Why don't you guys think about ideal concept cars\n#tatamotors #Concept #Cars https://t.co/rvzMyf02dS",
+                "No payment plan given, didn't displayed actual model I want to buy, only follow up is about payment, #RatanTata #TataMotors talked to sales manager as well no results, Tata motors you are missing human behaviour",
+            ]
+
+            var imagesArr = [
+                "{% static 'images/img1_1.jpeg' %}",
+                "{% static 'images/img1_2.jpeg' %}",
+                "{% static 'images/img1_3.jpeg' %}",
+                "{% static 'images/img1_4.jpeg' %}",
+                "{% static 'images/img1_5.jpeg' %}",
+                "{% static 'images/img2_1.jpeg' %}",
+                "{% static 'images/img2_2.jpeg' %}",
+                "{% static 'images/img2_3.jpeg' %}",
+                "{% static 'images/img2_4.jpeg' %}",
+                "{% static 'images/img2_5.jpeg' %}",
+                "{% static 'images/img3_1.jpeg' %}",
+                "{% static 'images/img3_2.jpeg' %}",
+                "{% static 'images/img3_3.jpeg' %}",
+                "{% static 'images/img3_4.jpeg' %}",
+                "{% static 'images/img3_5.jpeg' %}",
+           ]
+            // Get the modal
+            var modal = document.getElementById("myModal");
+            
+            // Get the button that opens the modal
+            var btn1 = document.getElementById("myBtn1");
+            var btn2 = document.getElementById("myBtn2");
+            var btn3 = document.getElementById("myBtn3");
+
+            var imageDesc1 = document.getElementById("desc1");
+            var imageDesc2 = document.getElementById("desc2");
+            var imageDesc3 = document.getElementById("desc3");
+            var imageDesc4 = document.getElementById("desc4");
+            var imageDesc5 = document.getElementById("desc5");
+
+            var image = document.getElementById("image");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0]; 
+
+            // When the user clicks the button, open the modal 
+            btn1.onclick = function () {
+                modal.style.display = "block";
+                var rnd = Math.floor(Math.random() * 4);
+                image.src = imagesArr[rnd];
+                rnd = Math.floor(Math.random() * 10);
+                imageDesc1.innerHTML = tweets[rnd];
+                imageDesc2.innerHTML = tweets[rnd + 1];
+                imageDesc3.innerHTML = tweets[rnd + 2];
+                imageDesc4.innerHTML = tweets[rnd + 3];
+                imageDesc5.innerHTML = tweets[rnd + 4];
+
+            }
+
+            btn2.onclick = function () {
+                modal.style.display = "block";
+                var rnd = 5 + Math.floor(Math.random() * 4);
+                image.src = imagesArr[rnd]
+                rnd = Math.floor(Math.random() * 10);
+                imageDesc1.innerHTML = tweets[rnd];
+                imageDesc2.innerHTML = tweets[rnd + 1];
+                imageDesc3.innerHTML = tweets[rnd + 2];
+                imageDesc4.innerHTML = tweets[rnd + 3];
+                imageDesc5.innerHTML = tweets[rnd + 4];
+
+            }
+
+            btn3.onclick = function () {
+                modal.style.display = "block";
+                var rnd = 10 + Math.floor(Math.random() * 4);
+                image.src = imagesArr[rnd]
+                rnd = Math.floor(Math.random() * 10);
+                imageDesc1.innerHTML = tweets[rnd];
+                imageDesc2.innerHTML = tweets[rnd + 1];
+                imageDesc3.innerHTML = tweets[rnd + 2];
+                imageDesc4.innerHTML = tweets[rnd + 3];
+                imageDesc5.innerHTML = tweets[rnd + 4];
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+
+</body>
+
+</html>
